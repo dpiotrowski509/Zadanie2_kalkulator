@@ -1,0 +1,84 @@
+﻿<Application x:Class="Zadanie2_kalkulator.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Zadanie2_kalkulator"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="numberButtonColor" Color="#fff"/>
+        <SolidColorBrush x:Key="signButtonColor" Color="#aaa"/>
+        <SolidColorBrush x:Key="equalButtonColor" Color="#66b1d1"/>
+        <SolidColorBrush x:Key="equalHoverButtonColor" Color="#5ca0bd"/>
+        <SolidColorBrush x:Key="equalClickButtonColor" Color="#508ca6"/>
+        <SolidColorBrush x:Key="backgroundColor" Color="#ccc"/>
+        <SolidColorBrush x:Key="clickedButton" Color="#777"/>
+        <SolidColorBrush x:Key="hoverButton" Color="#999"/>
+
+
+        <Style TargetType="Button" 
+               x:Key="numbersButtonStyle">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="{StaticResource numberButtonColor}"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource hoverButton}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource clickedButton}"/>
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button"
+               x:Key="signsButtonStyle"
+               BasedOn="{StaticResource numbersButtonStyle}">
+            <Setter Property="Background" Value="{StaticResource signButtonColor}"/>
+        </Style>
+
+        <Style TargetType="Button"
+               x:Key="equalButtonStyle"
+               BasedOn="{StaticResource numbersButtonStyle}">
+            <Setter Property="Background" Value="{StaticResource equalButtonColor}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource equalHoverButtonColor}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource equalClickButtonColor}"/>
+                </Trigger>
+            </Style.Triggers>
+
+
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="CalculationArea">
+            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="70"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+        
+        
+    </Application.Resources>
+</Application>

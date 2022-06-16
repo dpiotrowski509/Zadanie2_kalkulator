@@ -1,0 +1,236 @@
+﻿<Window x:Class="Zadanie2_kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadanie2_kalkulator"
+        mc:Ignorable="d"
+    Title="Kalkulator"
+    MinHeight="650"
+    MinWidth="400"
+    Height="650"
+    Width="400"
+    FontSize="24"
+    Background="{StaticResource backgroundColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="{Binding LastCalculationEvent}"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"/>
+            <TextBlock Grid.Row="1" 
+                   Text="{Binding CalculationArea}"
+                   Style="{StaticResource CalculationArea}"/>
+            
+        </Grid>
+
+        
+        <Button Grid.Row="2" 
+                Grid.Column="0" 
+                Content="%"
+                Style="{StaticResource signsButtonStyle}"
+                Click="PercentSign"/>
+        
+        <Button Grid.Row="2" 
+                Grid.Column="1" 
+                Content="CE"
+                Style="{StaticResource signsButtonStyle}"
+                Click="ClearAll"/>
+        
+        <Button Grid.Row="2" 
+                Grid.Column="2" 
+                Content="C"
+                Style="{StaticResource signsButtonStyle}"
+                Click="ClearCalculationArea"/>
+        
+        <Button Grid.Row="2" 
+                Grid.Column="3" 
+                Content="←"
+                Style="{StaticResource signsButtonStyle}"
+                Click="DeleteLastAddedNumber"/>
+
+        <Button Grid.Row="3" 
+                Grid.Column="1" 
+                Content="MOD"
+                Style="{StaticResource signsButtonStyle}"
+                Click="ModuloSign"/>
+
+        <Button Grid.Row="3" 
+                Grid.Column="0" 
+                Content="LOG"
+                Style="{StaticResource signsButtonStyle}"
+                Click="LogSign"/>
+
+        <Button Grid.Row="3" 
+                Grid.Column="2" 
+                Content="FLOOR"
+                Style="{StaticResource signsButtonStyle}"
+                Click="FloorSign"/>
+        
+        <Button Grid.Row="3" 
+                Grid.Column="3" 
+                Content="CEIL"
+                Style="{StaticResource signsButtonStyle}"
+                Click="CeilingSign"/>
+        
+        <Button Grid.Row="4" 
+                Grid.Column="3" 
+                Content="x!"
+                Style="{StaticResource signsButtonStyle}"
+                Click="FactorialSign"/>
+        
+        <Button Grid.Row="4"
+                Grid.Column="0" 
+                Content="1/x"
+                Style="{StaticResource signsButtonStyle}"
+                Click="ReciprocalSign"
+                />
+        
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Content="x²"
+                Style="{StaticResource signsButtonStyle}"
+                Click="Exponentiation"
+                />
+        
+        <Button Grid.Row="4"
+                Grid.Column="2"
+                Content="√x"
+                Style="{StaticResource signsButtonStyle}"
+                Click="SquareSign"
+                />
+        
+        <Button Grid.Row="5"
+                Grid.Column="3" 
+                Content="÷"
+                Style="{StaticResource signsButtonStyle}"
+                Click="AddSign"/>
+        
+        <Button Grid.Row="5"
+                Grid.Column="0" 
+                Content="7"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="5"
+                Grid.Column="1"
+                Content="8"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="5"
+                Grid.Column="2"
+                Content="9"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="6" 
+                Grid.Column="3" 
+                Content="×"
+                Style="{StaticResource signsButtonStyle}"
+                Click="AddSign"/>
+        
+        <Button Grid.Row="6" 
+                Grid.Column="0"
+                Content="4"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="6" 
+                Grid.Column="1" 
+                Content="5"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="6" 
+                Grid.Column="2"
+                Content="6"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="7"
+                Grid.Column="3" 
+                Content="-"
+                Style="{StaticResource signsButtonStyle}"
+                Click="AddSign"/>
+        
+        <Button Grid.Row="7"
+                Grid.Column="0"
+                Content="1"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="7" 
+                Grid.Column="1" 
+                Content="2"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="7" 
+                Grid.Column="2" 
+                Content="3"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="8"
+                Grid.Column="3" 
+                Content="+"
+                Style="{StaticResource signsButtonStyle}"
+                Click="AddSign"/>
+        
+        <Button Grid.Row="8"
+                Grid.Column="0"
+                Content="⁺∕₋"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="ChangeSign"
+                />
+        
+        <Button Grid.Row="8"
+                Grid.Column="1" 
+                Content="0"
+                Style="{StaticResource numbersButtonStyle}"
+                Click="AddNumber"/>
+        
+        <Button Grid.Row="8" 
+                Grid.Column="2" 
+                Content="."
+                Style="{StaticResource numbersButtonStyle}"
+                Click="DotSign"
+                />
+        
+        <Button Grid.Row="9" 
+                Grid.ColumnSpan="4" 
+                Content="="
+                Style="{StaticResource equalButtonStyle}"
+                Click="EqualSign"/>
+
+    </Grid>
+
+
+
+</Window>
